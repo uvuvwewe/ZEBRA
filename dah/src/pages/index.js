@@ -8,6 +8,7 @@ import {useState} from 'react';
 
 export default function Home() {
 
+  
   const [color, setColor] = useState("Message!");
 
   function BTConnect(){
@@ -22,6 +23,9 @@ function connectCallback(dat) {
 }
 
 
+let users = require('../data.json');
+
+
   const { dark, setDark } = useThemeContext();
   return (
     <div className='p-4 flex flex-col w-full'>
@@ -33,6 +37,10 @@ function connectCallback(dat) {
 
 
 <button             onClick={() => BTConnect()}>Klik hier</button>
+
+
+{users.map(x => x)}
+
 
 
 <div id="myDiv">

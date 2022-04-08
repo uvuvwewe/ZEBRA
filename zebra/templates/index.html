@@ -1,0 +1,36 @@
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='ebapi.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.bluetooth.js') }}"></script>
+
+
+
+
+<script>
+    
+function BTConnect(){
+    EB.Bluetooth.connect("00:22:58:2B:B1:BD",true,connectCallback);
+}
+function connectCallback(dat) {
+    document.getElementById("myDiv").innerHTML += dat.status;
+    document.getElementById("otherDiv").innerHTML += dat. message;
+}
+
+</script>
+
+
+<button onclick="BTConnect()">Press Me</button>
+
+
+
+
+<div id="myDiv">
+  
+</div>
+
+<div id="otherDiv">
+  
+</div>
+
+
+
+
+<a>sss</a>
