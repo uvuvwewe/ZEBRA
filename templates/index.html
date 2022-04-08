@@ -11,7 +11,8 @@ function BTConnect(){
 }
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
-    document.getElementById("otherDiv").innerHTML += dat. message;
+    document.getElementById("otherDiv").innerHTML += dat.message;
+    document.getElementById("otherDiv").innerHTML += JSON.stringify(dat);
 }
 
 </script>
@@ -27,6 +28,11 @@ function connectCallback(dat) {
 </div>
 
 <div id="otherDiv">
+  
+</div>
+
+
+<div id="dov">
   
 </div>
 
