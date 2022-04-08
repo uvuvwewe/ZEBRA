@@ -27,7 +27,7 @@ function connectCallback(dat) {
     <div className='p-4 flex flex-col w-full'>
 
 
-<script type="text/javascript" charset="utf-8" src="../ebapi.js"></script>
+<script type="text/javascript" charset="utf-8" src="../ebapi-modules.js"></script>
 
 
 
