@@ -20,10 +20,21 @@ function connectCallback(dat) {
     document.getElementById("otherDiv").innerHTML += JSON.stringify(dat);
 }
 
+
+function BTRead() {
+    EB.Bluetooth.readData(readCallback);
+}
+function readCallback(dat) {
+    document.getElementById("myDiv").innerHTML = "
+    dat.status+"<br/> Data:"+dat.data +"<br/> message:"+dat.message ;
+}
+
+
 </script>
 
 
-<button onclick="BTConnect()">Press Me</button>
+<button onclick="BTConnect()">CONNECT</button>
+<button onclick="BTRead()">READ Me</button>
 
 
 
