@@ -97,7 +97,7 @@ function connectCallback(dat) {
           <Input type='password' placeholder='password' />
           <Button>Submit</Button>
           {['primary', 'secondary', 'tertiary', 'accent', 'violator'].map(
-            (color: Colors) => (
+            (color) => (
               <div className='flex space-x-2' key={color}>
                 <Button color={color}>{color}</Button>
                 <Button color={color} weight='light'>
