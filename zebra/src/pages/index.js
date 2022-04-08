@@ -2,19 +2,24 @@ import { useEffect } from 'react';
 import Button, { Colors } from '../components/Button';
 import Input from '../components/Input';
 import { useThemeContext } from '../contexts/theme';
+import {useState} from 'react';
+
+
 
 export default function Home() {
 
+  const [color, setColor] = useState("Message!");
 
   function BTConnect(){
     EB.Bluetooth.connect("C4:64:E3:C6:F4:17",true,connectCallback);
 }
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
-    alert(JSON.stringify(dat))
     document.getElementById("otherDiv").innerHTML += dat. message;
-}
+    setColor(JSON.stringify(dat));
+    
 
+}
 
 
   const { dark, setDark } = useThemeContext();
@@ -33,7 +38,9 @@ function connectCallback(dat) {
 <div id="myDiv">
   
 </div>
-
+<div>
+  {color}
+</div>
 <div id="otherDiv">
   
 </div>
