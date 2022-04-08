@@ -12,7 +12,7 @@
 
 
 function BTConnect(){
-    EB.Bluetooth.connect("0022582BB1BD",false,connectCallback);
+    EB.Bluetooth.connect("C4:64:E3:C6:F4:17",true,connectCallback);
 }
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
