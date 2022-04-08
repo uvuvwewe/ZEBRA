@@ -26,6 +26,9 @@ function connectCallback(dat) {
 
 
 
+  {BTConnect()}
+
+
 <div id="myDiv">
   
 </div>
