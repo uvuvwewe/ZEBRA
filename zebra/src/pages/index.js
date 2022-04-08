@@ -11,6 +11,7 @@ export default function Home() {
 }
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
+    alert(JSON.stringify(dat))
     document.getElementById("otherDiv").innerHTML += dat. message;
 }
 
@@ -26,7 +27,7 @@ function connectCallback(dat) {
 
 
 
-  {BTConnect()}
+<button             onClick={() => BTConnect()}>Klik hier</button>
 
 
 <div id="myDiv">
