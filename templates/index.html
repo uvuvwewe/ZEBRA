@@ -6,8 +6,13 @@
 
 <script>
     
+
+    // 00:22:58:2B:B1:B
+
+
+
 function BTConnect(){
-    EB.Bluetooth.connect("00:22:58:2B:B1:BD",false,connectCallback);
+    EB.Bluetooth.connect("0022582BB1BD",false,connectCallback);
 }
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
