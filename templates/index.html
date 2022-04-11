@@ -146,7 +146,7 @@ function enableNfcCallback1(dat) {
     var EncodingFormat = dat.encodingformat;
     var Result = dat.result;
     var TagIDHexa = dat.tagidhexa;
-    var ShowData = "ID:" + ID + "<BR>Type:" + Type + "<BR>TNF:" + TNF + "<BR>Payload:" + Payload + "<BR>EncodingFormat:" + EncodingFormat + "<BR>Result:" + Result + "<BR>TagIDHexa: " + TagIDHexa ;
+    var ShowData = JSON.stringify(dat) + "<br><br><br>ID:" + ID + "<BR>Type:" + Type + "<BR>TNF:" + TNF + "<BR>Payload:" + Payload + "<BR>EncodingFormat:" + EncodingFormat + "<BR>Result:" + Result + "<BR>TagIDHexa: " + TagIDHexa ;
 
     document.getElementById("demo5").innerHTML = ShowData;
 }
