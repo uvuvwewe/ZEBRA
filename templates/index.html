@@ -28,7 +28,8 @@ function scanfc(){
 
 
 function BTConnect(){
-    EB.Bluetooth.connect("C4:64:E3:C6:F4:17",false,connectCallback);
+  // EB.Bluetooth.connect("C4:64:E3:C6:F4:17",false,connectCallback);
+  EB.Bluetooth.connect("4c:02:20:94:c0:ac",false,connectCallback);
 }
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
