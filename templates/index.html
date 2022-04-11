@@ -1,6 +1,7 @@
 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='ebapi.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.bluetooth.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.eznfc.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.barcode.js') }}"></script>
 
 
 
@@ -19,7 +20,9 @@
 
 function BTConnect(){
   // EB.Bluetooth.connect("C4:64:E3:C6:F4:17",false,connectCallback);
-  EB.Bluetooth.connect("4C:02:20:94:C0:AC",true,connectCallback);
+  var z = EB.Bluetooth.connect("4C:02:20:94:C0:AC",true,connectCallback);
+  z.Bluetooth.
+
 }
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
@@ -179,3 +182,57 @@ function enableNfcCallback1(dat) {
 </table>
 </DIV>
 <DIV id="demo5"></DIV>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  function scanReceived(params){
+      // No data or no timestamp, scan failed.
+      if(params['data']== "" || params['time']==""){
+          document.getElementById('display').innerHTML = "Failed!";
+          return;
+      }
+      // Data and timestamp exist, barcode successful, show results
+      var displayStr = "Barcode Data: " + params['data']+"<br>Time: "+params['time'];
+      document.getElementById("display").innerHTML = displayStr;
+  }
+
+  function enableScanners(){
+      EB.Barcode.enable({}, scanReceived);
+      // Empty property hash, '{}' loads default values for the scanner.
+  }
+
+  function unloadEvent(){
+      EB.Barcode.disable();
+      // Disable Barcode on unload of page to free it up for other operations.
+  }
+</script>
+</head>
+
+  <h1>Barcode API Test</h1>
+  <div id="display">
+      Barcode Data: <br>
+      Time: <br>
+  </div>
+  <button onclick="enableScanners()">Enable Barcode Scanners</button>
