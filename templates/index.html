@@ -14,7 +14,7 @@
     const ndef = new NDEFReader();
 
     ndef.scan().then(() => {
-  console.log("Scan started successfully.");
+  alert("Scan started successfully.");
   ndef.onreadingerror = () => {
     alert("Cannot read data from the NFC tag. Try another one?");
   };
@@ -33,7 +33,7 @@ function scanfc(){
     const ndef = new NDEFReader();
 
     ndef.scan().then(() => {
-  console.log("Scan started successfully.");
+  alert("Scan started successfully.");
   ndef.onreadingerror = () => {
     alert("Cannot read data from the NFC tag. Try another one?");
   };
