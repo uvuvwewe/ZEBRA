@@ -1,54 +1,31 @@
 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='ebapi.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.bluetooth.js') }}"></script>
-<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.eznfc.js') }}"></script>
-<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.barcode.js') }}"></script>
-
-
-
 
 <script>
-    
-
-    // 00:22:58:2B:B1:B
-
-
-
-
-
-
-
-
+   
 function BTConnect(boolean){
   EB.Bluetooth.connect("C4:64:E3:C6:F4:17",boolean,connectCallback);
-  // var z = EB.Bluetooth.connect("4C:02:20:94:C0:AC",true,connectCallback);
-
 }
+
 function connectCallback(dat) {
     document.getElementById("myDiv").innerHTML += dat.status;
     document.getElementById("otherDiv").innerHTML += dat.message;
     document.getElementById("dov").innerHTML += JSON.stringify(dat);
 }
 
-
 function BTRead() {
     EB.Bluetooth.readData(readCallback);
 }
 
 function readCallback(dat) {
-  document.getElementById("myDiv").innerHTML = dat.status + "<br/> Data:"+dat.data +"<br/> message:"+dat.message ;
+    document.getElementById("myDiv").innerHTML = dat.status + "<br/> Data:"+dat.data +"<br/> message:"+dat.message ;
 }
-
 
 </script>
 
 
 <button onclick="BTConnect(true)">CONNECT SAFE</button>
 <button onclick="BTConnect(false)">CONNECT NOT SAFE</button>
-<!-- <button onclick="scanfc()">NFC</button> -->
-<!-- <button onclick="BTRead()">READ Me</button> -->
-
-
-
 
 <div id="myDiv">
   
