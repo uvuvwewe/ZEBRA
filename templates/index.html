@@ -1,5 +1,6 @@
 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='ebapi.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.bluetooth.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='eb.eznfc.js') }}"></script>
 
 
 
@@ -11,38 +12,10 @@
 
 
 
-    const ndef = new NDEFReader();
-
-    ndef.scan().then(() => {
-  alert("Scan started successfully.");
-  ndef.onreadingerror = () => {
-    alert("Cannot read data from the NFC tag. Try another one?");
-  };
-  ndef.onreading = event => {
-    alert("NDEF message read.");
-  };
-}).catch(error => {
-    alert(`Error! Scan failed to start: ${error}.`);
-});
-
-
-
 
 
 function scanfc(){
-    const ndef = new NDEFReader();
-
-    ndef.scan().then(() => {
-  alert("Scan started successfully.");
-  ndef.onreadingerror = () => {
-    alert("Cannot read data from the NFC tag. Try another one?");
-  };
-  ndef.onreading = event => {
-    alert("NDEF message read.");
-  };
-}).catch(error => {
-    alert(`Error! Scan failed to start: ${error}.`);
-});
+  EB.EzNFC.enableAdapter();
 }
 
 
