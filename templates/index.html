@@ -11,6 +11,30 @@
 
 
 
+
+
+
+
+
+function scanfc(){
+    const ndef = new NDEFReader();
+
+    ndef.scan().then(() => {
+  console.log("Scan started successfully.");
+  ndef.onreadingerror = () => {
+    alert("Cannot read data from the NFC tag. Try another one?");
+  };
+  ndef.onreading = event => {
+    alert("NDEF message read.");
+  };
+}).catch(error => {
+    alert(`Error! Scan failed to start: ${error}.`);
+});
+}
+
+
+
+
 function BTConnect(){
     EB.Bluetooth.connect("C4:64:E3:C6:F4:17",false,connectCallback);
 }
@@ -34,6 +58,7 @@ function connectCallback(dat) {
 
 
 <button onclick="BTConnect()">CONNECT</button>
+<button onclick="scanfc()">NFC</button>
 <!-- <button onclick="BTRead()">READ Me</button> -->
 
 
