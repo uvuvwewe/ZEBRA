@@ -15,7 +15,13 @@
 
 
 function scanfc(){
+  alert(EB.EzNFC.isSupported);
+  alert(EB.EzNFC.isEnabled);
   EB.EzNFC.enableAdapter();
+  EB.EzNFC.enableRead();
+  alert(EB.EzNFC.isEnabled);
+
+  
 }
 
 
@@ -66,4 +72,119 @@ function connectCallback(dat) {
 
 
 
-<a>sss</a>
+
+
+<script type="text/javascript">
+/*
+EB.EzNFC.isSupported
+Property to check whether NFC is supported on the device.
+Return
+    true - if supported
+    false - if not supported
+*/
+function isNfcSupported()
+{
+    var x=EB.EzNFC.isSupported;
+    document.getElementById("demo1").innerHTML = x;
+}
+/*
+EB.EzNFC.isEnabled
+Property to check whether NFC Adapter is enabled on the device.
+Return
+    true - if enabled
+    false - if not enabled
+*/
+function isNfcEnabled()
+{
+    var x=EB.EzNFC.isEnabled;
+    document.getElementById("demo2").innerHTML = x;
+}
+/*
+EB.EzNFC.enableAdapter();
+Method to enable the NFC Adapter. Invoking this method brings up the Device settings Activity so user can manually enable the NFC Adapter.
+Calling this method has no effect if NFC Adapter is already enabled.
+*/
+function EnableNfcAdapter()
+{
+    EB.EzNFC.enableAdapter();
+}
+/*
+enableRead(enableNfcCallback1)
+Method to enable NFC Tag Reading.
+*/
+function EnableNfcRead()
+{
+    EB.EzNFC.enableRead(enableNfcCallback1);
+}
+/*
+disableRead();
+Method to disable NFC Tag Reading.
+*/
+function DisableNfcRead()
+{
+    EB.EzNFC.disableRead();
+    /* Clearing the div of previously read data*/
+    document.getElementById("demo5").innerHTML = "";
+}
+/*
+enableRead(enableNfcCallback1).
+User-defined callback with the enableRead() method.
+Gets fired when NFC Tag is Read.
+Returns Tag
+ID
+Type
+TNF
+Payload
+EncodingFormat
+Result
+*/
+function enableNfcCallback1(dat) {
+    var ID = dat.id;
+    var Type = dat.type;
+    var TNF = dat.tnf;
+    var Payload = dat.payload;
+    var EncodingFormat = dat.encodingformat;
+    var Result = dat.result;
+    var TagIDHexa = dat.tagidhexa;
+    var ShowData = "ID:" + ID + "<BR>Type:" + Type + "<BR>TNF:" + TNF + "<BR>Payload:" + Payload + "<BR>EncodingFormat:" + EncodingFormat + "<BR>Result:" + Result + "<BR>TagIDHexa: " + TagIDHexa ;
+
+    document.getElementById("demo5").innerHTML = ShowData;
+}
+</script>
+</head>
+<body>
+<h2  align="center">Enterprise Browser NFC API Test</h2>
+<hr>
+<br>
+<DIV>
+<table border=1>
+    <tr>
+        <td>
+            <button onclick="isNfcSupported();">isSupported</button>:
+        </td>
+        <td><div id="demo1"></div></td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="isNfcEnabled();">isEnabled</button>:
+        </td>
+        <td><div id="demo2"></div></td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <button onclick="EnableNfcAdapter();">enableAdapter</button>:
+        </td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <button onclick="EnableNfcRead();">enableRead</button>:</td>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <button onclick="DisableNfcRead();">disableRead</button>:</td>
+        </td>
+    </tr>
+</table>
+</DIV>
+<DIV id="demo5"></DIV>
