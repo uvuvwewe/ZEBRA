@@ -16,6 +16,8 @@
 
 
 
+    
+
 
 
 function BTConnect(boolean){
@@ -33,6 +35,7 @@ function connectCallback(dat) {
 function BTRead() {
     EB.Bluetooth.readData(readCallback);
 }
+
 function readCallback(dat) {
     document.getElementById("myDiv").innerHTML = "
     dat.status+"<br/> Data:"+dat.data +"<br/> message:"+dat.message ;
@@ -42,10 +45,15 @@ function readCallback(dat) {
 </script>
 
 
+
+
+
 <button onclick="BTConnect(true)">CONNECT SAFE</button>
 <button onclick="BTConnect(false)">CONNECT NOT SAFE</button>
 <!-- <button onclick="scanfc()">NFC</button> -->
 <!-- <button onclick="BTRead()">READ Me</button> -->
+
+
 
 
 
