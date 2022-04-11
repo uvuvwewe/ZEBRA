@@ -18,8 +18,8 @@
 
 
 
-function BTConnect(){
-  EB.Bluetooth.connect("C4:64:E3:C6:F4:17",false,connectCallback);
+function BTConnect(boolean){
+  EB.Bluetooth.connect("C4:64:E3:C6:F4:17",boolean,connectCallback);
   // var z = EB.Bluetooth.connect("4C:02:20:94:C0:AC",true,connectCallback);
 
 }
@@ -42,7 +42,8 @@ function readCallback(dat) {
 </script>
 
 
-<button onclick="BTConnect()">CONNECT</button>
+<button onclick="BTConnect(true)">CONNECT SAFE</button>
+<button onclick="BTConnect(false)">CONNECT NOT SAFE</button>
 <!-- <button onclick="scanfc()">NFC</button> -->
 <!-- <button onclick="BTRead()">READ Me</button> -->
 
@@ -65,7 +66,7 @@ function readCallback(dat) {
 
 
 
-
+<!-- 
 
 <script type="text/javascript">
 /*
@@ -240,4 +241,4 @@ function enableNfcCallback1(dat) {
       </div>
       <button onclick="enableScanners()">Enable Barcode Scanners</button>
   </body>              
-  </pre>
+  </pre> -->
