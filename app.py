@@ -10,3 +10,4 @@ def hello_world():
 @app.route("/bt")
 def bt():
     return render_template('bt.html')
+    
